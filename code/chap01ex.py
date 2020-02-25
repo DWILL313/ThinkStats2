@@ -13,6 +13,20 @@ import sys
 import nsfg
 import thinkstats2
 
+def ReadFemResp(dct_file='2002FemResp.dct',
+                dat_file='2002FemResp.dat.gz',
+                nrows=None):
+    """Reads the NSFG respondent data.
+
+    dct_file: string file name
+    dat_file: string file name
+
+    returns: DataFrame
+    """
+    dct = thinkstats2.ReadStataDct(dct_file)
+    df = dct.ReadFixedWidth(dat_file, compression='gzip', nrows=nrows)
+    CleanFemResp(df)
+    return df
 
 def main(script):
     """Tests the functions in this module.
