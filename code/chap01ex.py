@@ -13,15 +13,18 @@ import sys
 import nsfg
 import thinkstats2
 
-resp = ReadFemResp()
-print(resp.head())
-def main(script):
-    """Tests the functions in this module.
+#Read '2002FemResp.dat.gz' into resp dataframe. Use ReadFemResp function from nsfg to preform the task
+resp = nsfg.ReadFemResp()
+#print(resp.columns)
+#Print value counts of pregnum column and compare to codebook
+print(resp.pregnum.value_counts().sort_index())
+#def main(script):
+#    """Tests the functions in this module.
+#
+#    script: string script name
+#    """
+#    print('%s: All tests passed.' % script)
 
-    script: string script name
-    """
-    print('%s: All tests passed.' % script)
 
-
-if __name__ == '__main__':
-    main(*sys.argv)
+#if __name__ == '__main__':
+#    main(*sys.argv)
